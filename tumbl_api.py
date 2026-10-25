@@ -9,6 +9,7 @@ import sys
 import time
 import uuid
 from urllib.parse import quote
+import selectors
 
 from aiogram import Bot, Dispatcher, Router
 from aiogram.filters import Command
@@ -288,6 +289,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(main())
+    asyncio.run(main(), loop_factory=lambda: asyncio.SelectorEventLoop(selectors.SelectSelector()))
