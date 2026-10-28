@@ -1,13 +1,5 @@
-# Переменные окружения
+
 .env
-.env.*
-!.env.example
-
-# Виртуальное окружение Python
-venv/
 .venv/
-env/
-
-# Кэш Python
 __pycache__/
-*.pyc 
+.ruff_cache/
